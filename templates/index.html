@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Task Scheduler</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1><i class="fas fa-tasks"></i> Advanced Task Scheduler</h1>
+                <div class="header-actions">
+                    <button class="btn btn-primary" onclick="showAddTaskModal()">
+                        <i class="fas fa-plus"></i> Add Task
+                    </button>
+                    <button class="btn btn-secondary" onclick="exportTasks()">
+                        <i class="fas fa-download"></i> Export
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Statistics Dashboard -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-list-check"></i>
+                </div>
+                <div class="stat-content">
+                    <h3 id="total-tasks">{{ stats.total }}</h3>
+                    <p>Total Tasks</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon completed">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <div class="stat-content">
+                    <h3 id="completed-tasks">{{ stats.completed }}</h3>
+                    <p>Completed</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon pending">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <div class="stat-content">
+                    <h3 id="pending-tasks">{{ stats.pending }}</h3>
+                    <p>Pending</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon progress">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="stat-content">
+                    <h3 id="completion-rate">{{ stats.completion_rate }}%</h3>
+                    <p>Completion Rate</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Filters and Search -->
+        <div class="controls">
+            <div class="search-container">
+                <i class="fas fa-search"></i>
+                <input type="text" id="search-input" placeholder="Search tasks...">
+            </div>
+            <div class="filters">
+                <select id="status-filter">
+                    <option value="all">All Status</option>
+                    <option value="pending">Pending</option>
+                    <option value="completed">Completed</option>
+                </select>
+                <select id="priority-filter">
+                    <option value="all">All Priority</option>
+                    <option value="high">High</option>
+                    <option value="medium">Medium</option>
+                    <option value="low">Low</option>
+                </select>
+                <select id="category-filter">
+                    <option value="all">All Categories</option>
+                    <option value="work">Work</option>
+                    <option value="personal">Personal</option>
+                    <option value="study">Study</option>
+                    <option value="general">General</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Tasks Grid -->
+        <div class="tasks-container">
+            <div id="tasks-grid" class="tasks-grid">
+                <!-- Tasks will be loaded here dynamically -->
+            </div>
+            <div id="empty-state" class="empty-state" style="display: none;">
+                <i class="fas fa-inbox"></i>
+                <h3>No tasks found</h3>
+                <p>Create your first task to get started!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add/Edit Task Modal -->
+    <div id="task-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-title">Add New Task</h2>
+                <button class="modal-close" onclick="closeTaskModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form id="task-form" class="modal-body">
+                <div class="form-group">
+                    <label for="task-title">Task Title *</label>
+                    <input type="text" id="task-title" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="task-description">Description</label>
+                    <textarea id="task-description" rows="3"></textarea>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="task-priority">Priority</label>
+                        <select id="task-priority">
+                            <option value="low">Low</option>
+                            <option value="medium" selected>Medium</option>
+                            <option value="high">High</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="task-category">Category</label>
+                        <select id="task-category">
+                            <option value="general">General</option>
+                            <option value="work">Work</option>
+                            <option value="personal">Personal</option>
+                            <option value="study">Study</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="task-due-date">Due Date</label>
+                    <input type="datetime-local" id="task-due-date">
+                </div>
+                
+                <div class="form-group">
+                    <label for="task-tags">Tags (comma separated)</label>
+                    <input type="text" id="task-tags" placeholder="urgent, meeting, project">
+                </div>
+                
+                <div class="form-group">
+                    <label for="task-file">Attach File</label>
+                    <div class="file-upload-area" id="file-upload-area">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <p>Drag & drop files here or <span>browse</span></p>
+                        <input type="file" id="task-file" hidden>
+                    </div>
+                </div>
+                
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" onclick="closeTaskModal()">Cancel</button>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-save"></i> Save Task
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div id="loading" class="loading" style="display: none;">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
