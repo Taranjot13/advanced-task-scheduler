@@ -280,7 +280,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 👨‍💻 About the Developer
 
 **Taranjot Singh**
-- 💼 LinkedIn: https://www.linkedin.com/in/taranjot-singh-298480222/
+- 💼 LinkedIn: https://www.linkedin.com/in/taranjot13
 - 📧 Email: 65taranjot@gmail.com
 - 🐙 GitHub: https://github.com/Taranjot13
 
@@ -288,7 +288,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 For any questions or feedback, please reach out:
 - Email: 65taranjot@gmail.com
-- LinkedIn: https://www.linkedin.com/in/taranjot-singh-298480222/
+- LinkedIn: https://www.linkedin.com/in/taranjot13
 - Project Link: https://github.com/Taranjot13/advanced-task-scheduler/tree/main
 
 ---
