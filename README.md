@@ -1,11 +1,31 @@
 # Advanced Task Scheduler 📝
 
+![MIT License](https://img.shields.io/badge/license-MIT-green.svg)
+![Flask](https://img.shields.io/badge/Backend-Flask-blue.svg)
+![AWS S3](https://img.shields.io/badge/Cloud-AWS_S3-orange.svg)
+![Status](https://img.shields.io/badge/Status-In_Progress-yellow.svg)
+![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-yellow.svg)
+
 A modern, full-stack web application for task management with cloud storage integration, built with Flask and AWS S3. This project demonstrates proficiency in full-stack development, cloud services, responsive design, and modern web technologies.
 
 ## 🚀 Live Demo
 
-[Add your deployed application URL here]
+🚧 Deployment in progress...
 
+## 🖼️ Screenshots
+
+### 📋 Dashboard
+![Dashboard](screenshots/dashboard.png)
+*Modern dashboard with real-time statistics and progress tracking*
+
+### ✅ Task Management
+![Task Management](screenshots/task-management.png)
+*Interactive task cards with priority levels and drag & drop functionality*
+
+### 📱 Mobile View
+![Mobile](screenshots/mobile.png)
+*Fully responsive design optimized for mobile devices*
 
 ## ✨ Key Features
 
@@ -75,7 +95,7 @@ A modern, full-stack web application for task management with cloud storage inte
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/yourusername/task-scheduler.git
+git clone https://github.com/Taranjot13/advanced-task-scheduler.git
 cd task-scheduler
 ```
 
@@ -259,21 +279,20 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 👨‍💻 About the Developer
 
-**[Your Name]**
-- 🌐 Portfolio: [your-portfolio-url]
-- 💼 LinkedIn: [your-linkedin-url]
-- 📧 Email: [your-email]
-- 🐙 GitHub: [your-github-url]
+**Taranjot Singh**
+- 💼 LinkedIn: https://www.linkedin.com/in/taranjot-singh-298480222/
+- 📧 Email: 65taranjot@gmail.com
+- 🐙 GitHub: https://github.com/Taranjot13
 
 ## 📞 Contact
 
 For any questions or feedback, please reach out:
-- Email: your.email@example.com
-- LinkedIn: [Your LinkedIn Profile]
-- Project Link: [GitHub Repository URL]
+- Email: 65taranjot@gmail.com
+- LinkedIn: https://www.linkedin.com/in/taranjot-singh-298480222/
+- Project Link: https://github.com/Taranjot13/advanced-task-scheduler/tree/main
 
 ---
 
 ⭐ If you found this project helpful, please give it a star on GitHub!
 
-**Built with ❤️ and ☕ by [Your Name]**
+**Built with ❤️ and ☕ by Taranjot Singh**
